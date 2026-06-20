@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: claim-service
+  profiles:
+    active:
+      local

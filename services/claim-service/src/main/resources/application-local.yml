@@ -1,0 +1,7 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/healthcare_claims
+    username: healthcare_user
+    password: healthcare_password
