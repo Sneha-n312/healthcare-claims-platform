@@ -915,6 +915,15 @@ No.
 It depends on the Jakarta Servlet API.
 
 Therefore it works with Tomcat, Jetty, Undertow and any Servlet-compliant container.
+---
+
+### If I were interviewing you, I might ask:
+
+### Q Does filterChain.doFilter() terminate the execution of the current filter?
+
+The correct answer is:
+
+No. filterChain.doFilter() invokes the next filter in the chain. Once the downstream filters and ultimately the controller finish processing the request, execution returns to the current filter. That's why we often use return immediately after doFilter() in early-exit scenarios to prevent the remaining code in the current filter from executing.
 
 ---
 

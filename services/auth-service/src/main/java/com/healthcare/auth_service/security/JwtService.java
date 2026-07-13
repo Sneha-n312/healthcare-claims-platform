@@ -19,9 +19,7 @@ public class JwtService {
 
     private final JwtProperties jwtProperties;
 
-    /**
-     * Generate JWT for authenticated user
-     */
+
     public String generateToken(User user) {
 
         Date now = new Date();
@@ -39,9 +37,8 @@ public class JwtService {
                 .compact();
     }
 
-    /**
-     * Create signing key
-     */
+
+
     private SecretKey getSigningKey() {
 
         return Keys.hmacShaKeyFor(
@@ -52,9 +49,7 @@ public class JwtService {
     }
 
 
-    /**
-     * Validate JWT belongs to user and isn't expired
-     */
+
     public boolean isTokenValid(
             String token,
             String username) {
@@ -66,9 +61,8 @@ public class JwtService {
                 && !isTokenExpired(token);
     }
 
-    /**
-     * Check expiration
-     */
+
+
     private boolean isTokenExpired(
             String token) {
 
@@ -76,9 +70,8 @@ public class JwtService {
                 .before(new Date());
     }
 
-    /**
-     * Extract expiration
-     */
+
+
     private Date extractExpiration(
             String token) {
 
@@ -88,9 +81,8 @@ public class JwtService {
         );
     }
 
-    /**
-     * Extract username from JWT
-     */
+
+
     public String extractUsername(String token) {
 
         return extractClaim(
@@ -99,9 +91,8 @@ public class JwtService {
         );
     }
 
-    /**
-     * Generic claim extractor
-     */
+
+
     public <T> T extractClaim(
             String token,
             Function<Claims, T> resolver) {
@@ -112,9 +103,8 @@ public class JwtService {
     }
 
 
-    /**
-     * Parse token
-     */
+
+
     private Claims extractAllClaims(
             String token) {
 

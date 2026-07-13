@@ -23,3 +23,9 @@ spring:
 jwt:
   secret: ${JWT_SECRET:}
   expiration: 3600000
+
+auth:
+  keystore:
+    path: auth-server.p12
+    password: changeit
+    alias: auth-server

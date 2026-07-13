@@ -2,7 +2,7 @@ package com.healthcare.claim_service.entity;
 
 public enum ClaimStatus {
 
-    SUBMITTED,
+    CREATED,
     ENRICHING,
     ENRICHED,
     VALIDATING,
